@@ -1,4 +1,4 @@
-/* 조예진 · Jo Yejin — Portfolio interactions (original, no external deps) */
+/* 조예진 · Cho Yejin — Portfolio interactions (original, no external deps) */
 (function () {
   "use strict";
 
