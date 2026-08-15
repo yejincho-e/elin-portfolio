@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="graphic placeholder"><rect width="800" height="1000" fill="#e7ebef"/><circle cx="400" cy="470" r="60" fill="none" stroke="#1c2a3a" stroke-width="2" stroke-opacity="0.5"/><circle cx="400" cy="470" r="130" fill="none" stroke="#1c2a3a" stroke-width="2" stroke-opacity="0.5"/><circle cx="400" cy="470" r="200" fill="none" stroke="#1c2a3a" stroke-width="2" stroke-opacity="0.5"/><circle cx="400" cy="470" r="270" fill="none" stroke="#1c2a3a" stroke-width="2" stroke-opacity="0.5"/><circle cx="400" cy="470" r="340" fill="none" stroke="#1c2a3a" stroke-width="2" stroke-opacity="0.5"/><circle cx="400" cy="470" r="34" fill="#1c2a3a"/><text x="40" y="112" font-family="ui-monospace,monospace" font-size="17" letter-spacing="4" fill="#1c2a3a">IDENTITY / 02</text><text x="40" y="900" font-family="Georgia,serif" font-size="72" fill="#1c2a3a">Marque</text><text x="40" y="962" font-family="ui-monospace,Menlo,monospace" font-size="15" letter-spacing="3" fill="#1c2a3a" opacity="0.7">DUMMY — REPLACE</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="이미지 자리 - Brand Identity">
+  <rect width="800" height="1000" fill="#201d18"/>
+  <rect x="20" y="20" width="760" height="960" fill="none" stroke="#6b6255" stroke-width="3" stroke-dasharray="14 10"/>
+  <g stroke="#8b8474" stroke-width="6" fill="none" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="330" y="450" width="140" height="100" rx="6"/>
+    <circle cx="362" cy="482" r="10" fill="#8b8474" stroke="none"/>
+    <path d="M330 525 L380 485 L420 515 L470 470"/>
+  </g>
+  <text x="400" y="590" font-family="ui-monospace,Menlo,monospace" font-size="26" fill="#8b8474" text-anchor="middle">이미지 자리</text>
+  <text x="400" y="622" font-family="ui-monospace,Menlo,monospace" font-size="16" fill="#6b6255" text-anchor="middle">Brand Identity · 800×1000</text>
+</svg>
