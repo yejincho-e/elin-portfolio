@@ -54,8 +54,10 @@
      [ "$STATUS" = "built" ] && break
      sleep 10
    done
-   open "https://yejincho-e.github.io/elin-portfolio/"
+   open -a Safari "https://yejincho-e.github.io/elin-portfolio/"
    ```
+   (사용자 요청으로 항상 **Safari**로 열 것 — Chrome 등 기본 브라우저로 열지 말 것.
+   `open -a Safari <url>` 형태 사용.)
    빌드가 끝나는 걸 확인한 뒤에 브라우저를 열어야 최신 버전이 보임 (캐시로 안 보이면
    사용자에게 새로고침 안내).
 
