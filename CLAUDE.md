@@ -51,12 +51,30 @@
      끝났으면 그때부터는 git 방식(더 안정적, 바이너리/다중 파일에 유리)으로 전환할 것.
 
 2. **배포 확인 후 열어서 보여주기**
+
+   ⚠️ `pages/builds/latest`의 `status`만 보고 "built"라고 판단하면 안 됨 — 새 커밋에 대한
+   빌드가 아직 큐에 안 잡혀서 **이전 커밋의 built 상태**를 그대로 보여주는 경우가 있음
+   (실제로 이 문제로 사용자에게 반영 안 된 화면을 보여준 적 있음). 반드시 build의
+   `commit` 값이 방금 만든 커밋(=main의 최신 sha)과 일치하는지까지 확인할 것:
+
    ```bash
+   MAIN_SHA=$(~/bin/gh api repos/yejincho-e/elin-portfolio/commits/main --jq .sha)
    for i in 1 2 3 4 5 6; do
-     STATUS=$(~/bin/gh api repos/yejincho-e/elin-portfolio/pages/builds/latest --jq '.status')
-     [ "$STATUS" = "built" ] && break
+     LATEST=$(~/bin/gh api repos/yejincho-e/elin-portfolio/pages/builds/latest --jq '"\(.commit) \(.status)"')
+     echo "$LATEST" | grep -q "$MAIN_SHA" && echo "$LATEST" | grep -q built && break
      sleep 10
    done
+   # 6번 돌아도 안 잡히면(자동 빌드가 밀린 것) 수동으로 강제 트리거:
+   if ! echo "$LATEST" | grep -q "$MAIN_SHA"; then
+     ~/bin/gh api -X POST repos/yejincho-e/elin-portfolio/pages/builds > /dev/null
+     for i in 1 2 3 4 5 6; do
+       LATEST=$(~/bin/gh api repos/yejincho-e/elin-portfolio/pages/builds/latest --jq '"\(.commit) \(.status)"')
+       echo "$LATEST" | grep -q "$MAIN_SHA" && echo "$LATEST" | grep -q built && break
+       sleep 8
+     done
+   fi
+   # 실제 서빙되는 페이지에 방금 바꾼 내용이 있는지 curl로 한 번 더 확인 후 열 것
+   curl -s "https://yejincho-e.github.io/elin-portfolio/" | grep -q "<확인할 문구>" 
    open -a Safari "https://yejincho-e.github.io/elin-portfolio/"
    ```
    (사용자 요청으로 항상 **Safari**로 열 것 — Chrome 등 기본 브라우저로 열지 말 것.
