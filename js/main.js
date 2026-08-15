@@ -1,4 +1,4 @@
-/* 조예진 · Cho Yejin — Portfolio interactions (original, no external deps) */
+/* 조예진 · Yejin Cho — Portfolio interactions (original, no external deps) */
 (function () {
   "use strict";
 
@@ -113,6 +113,41 @@
       cursor.style.transform = "translate(" + cx + "px," + cy + "px) translate(-50%,-50%)";
       requestAnimationFrame(loop);
     })();
+  }
+
+  /* ---- Lightbox: click a project to view the artwork large ---- */
+  var lb = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lightboxImg");
+  if (lb && lbImg) {
+    var lastFocus = null;
+    var openLb = function (src, alt) {
+      lbImg.setAttribute("src", src);
+      lbImg.setAttribute("alt", alt || "");
+      lb.classList.add("is-open");
+      lb.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+    var closeLb = function () {
+      lb.classList.remove("is-open");
+      lb.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      lbImg.setAttribute("src", "");
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    };
+    document.querySelectorAll(".card__link, .featured__link").forEach(function (el) {
+      el.addEventListener("click", function (e) {
+        var img = el.querySelector("img");
+        var src = el.getAttribute("href") || (img && img.getAttribute("src"));
+        if (!src) return;
+        e.preventDefault();
+        lastFocus = el;
+        openLb(src, img ? img.getAttribute("alt") : "");
+      });
+    });
+    lb.addEventListener("click", closeLb);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && lb.classList.contains("is-open")) closeLb();
+    });
   }
 
   /* ---- Footer year ---- */

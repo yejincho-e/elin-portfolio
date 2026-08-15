@@ -1,5 +1,5 @@
 /* ============================================================
-   Cho Yejin — Graphic Design Portfolio
+   Yejin Cho — Graphic Design Portfolio
    Original stylesheet. Editorial, image-forward, motion-rich.
    ============================================================ */
 
@@ -179,6 +179,15 @@ section { padding: clamp(72px, 14vh, 170px) 0; }
 /* ---------- Footer ---------- */
 .foot { max-width: var(--maxw); margin: 0 auto; padding: 34px var(--pad) 52px; display: flex; justify-content: space-between; gap: 16px; font-family: var(--font-mono); font-size: 12px; color: var(--fg-dim); border-top: 1px solid var(--line); }
 .foot a { text-decoration: none; }
+
+/* ---------- Lightbox (click a project → view artwork large) ---------- */
+.lightbox { position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center; padding: clamp(16px, 4vw, 56px); background: color-mix(in srgb, var(--bg) 86%, #000); backdrop-filter: blur(6px); opacity: 0; visibility: hidden; transition: opacity .3s var(--ease), visibility .3s; cursor: zoom-out; }
+.lightbox.is-open { opacity: 1; visibility: visible; }
+.lightbox__img { max-width: min(1600px, 100%); max-height: 100%; width: auto; height: auto; object-fit: contain; border-radius: 4px; box-shadow: 0 30px 90px rgba(0,0,0,.55); transform: scale(.97); transition: transform .35s var(--ease); }
+.lightbox.is-open .lightbox__img { transform: none; }
+.lightbox__close { position: absolute; top: clamp(12px, 3vw, 24px); right: clamp(12px, 3vw, 24px); width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg-soft); color: var(--fg); font-size: 17px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform .2s var(--ease), border-color .2s; }
+.lightbox__close:hover { transform: scale(1.06); border-color: var(--accent); }
+@media (prefers-reduced-motion: reduce) { .lightbox, .lightbox__img { transition: opacity .2s; } .lightbox__img { transform: none; } }
 
 /* ---------- Reveal system ---------- */
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .9s var(--ease); }
