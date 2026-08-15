@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jo Yejin — Design Portfolio</title>
+  <meta name="description" content="Jo Yejin — design portfolio. Work expressed through image and word." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip" href="#work">Skip to content</a>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+
+  <!-- ===== Nav ===== -->
+  <header class="nav" id="top">
+    <a class="nav__brand" href="#top">Jo Yejin<span class="nav__brand-en">Seoul</span></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work"><i>01</i> Work</a>
+      <a href="#about"><i>02</i> About</a>
+      <a href="#contact"><i>03</i> Contact</a>
+    </nav>
+    <div class="nav__right">
+      <button class="theme" id="themeBtn" type="button" aria-label="Toggle theme"><span class="theme__dot"></span></button>
+      <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <span class="hero__index reveal">Portfolio<br />©'26</span>
+      <p class="hero__eyebrow reveal">Graphic Designer — Seoul, KR</p>
+      <h1 class="hero__title reveal">
+        <span class="line"><b>Designing</b></span>
+        <span class="line"><b>thought through</b></span>
+        <span class="line"><b><em>image</em> &amp; <em>word</em></b></span>
+      </h1>
+      <div class="hero__foot reveal" data-d="3">
+        <p class="hero__lead">
+          A designer working across editorial, graphic, and brand — shaping ideas with two materials: images and words.
+          <span class="dim">(placeholder — replace with real intro)</span>
+        </p>
+        <a class="hero__scroll" href="#work"><span>Selected Work</span><i>↓</i></a>
+      </div>
+    </section>
+
+    <!-- ===== Marquee ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Editorial</span><span>·</span><span>Brand Identity</span><span>·</span><span>Typography</span><span>·</span>
+        <span>Poster</span><span>·</span><span>Packaging</span><span>·</span><span>Art Direction</span><span>·</span>
+        <span>Editorial</span><span>·</span><span>Brand Identity</span><span>·</span><span>Typography</span><span>·</span>
+        <span>Poster</span><span>·</span><span>Packaging</span><span>·</span><span>Art Direction</span><span>·</span>
+      </div>
+    </div>
+
+    <!-- ===== Featured ===== -->
+    <section class="featured reveal" id="work">
+      <a class="featured__link" href="#">
+        <div class="featured__media reveal reveal--mask"><img src="assets/work-01.svg" alt="" width="800" height="1000" loading="lazy" data-parallax="0.12" /></div>
+        <div class="featured__info">
+          <span class="featured__no">Featured — 01</span>
+          <h2 class="featured__title">Editorial Layout</h2>
+          <p class="featured__tags">Print · Art Direction · 2026</p>
+          <span class="featured__cta">View project →</span>
+        </div>
+      </a>
+    </section>
+
+    <!-- ===== Work grid ===== -->
+    <section class="work">
+      <div class="section-head reveal">
+        <h2 class="section-head__title">Selected Work</h2>
+        <p class="section-head__sub">2023 — 2026 · dummy projects</p>
+      </div>
+
+      <ul class="grid">
+        <li class="card reveal" data-span="tall">
+          <a class="card__link" href="#">
+            <span class="card__media reveal reveal--mask"><span class="card__no">02</span><span class="card__view">View →</span><img src="assets/work-02.svg" alt="" width="800" height="1000" loading="lazy" /></span>
+            <span class="card__row"><span class="card__title">Brand Identity</span><span class="card__tag">Branding</span></span>
+          </a>
+        </li>
+        <li class="card reveal">
+          <a class="card__link" href="#">
+            <span class="card__media reveal reveal--mask"><span class="card__no">03</span><span class="card__view">View →</span><img src="assets/work-03.svg" alt="" width="800" height="1000" loading="lazy" /></span>
+            <span class="card__row"><span class="card__title">Poster Series</span><span class="card__tag">Graphic</span></span>
+          </a>
+        </li>
+        <li class="card reveal">
+          <a class="card__link" href="#">
+            <span class="card__media reveal reveal--mask"><span class="card__no">04</span><span class="card__view">View →</span><img src="assets/work-04.svg" alt="" width="800" height="1000" loading="lazy" /></span>
+            <span class="card__row"><span class="card__title">Type Study</span><span class="card__tag">Typography</span></span>
+          </a>
+        </li>
+        <li class="card reveal">
+          <a class="card__link" href="#">
+            <span class="card__media reveal reveal--mask"><span class="card__no">05</span><span class="card__view">View →</span><img src="assets/work-05.svg" alt="" width="800" height="1000" loading="lazy" /></span>
+            <span class="card__row"><span class="card__title">Packaging</span><span class="card__tag">Product</span></span>
+          </a>
+        </li>
+        <li class="card reveal" data-span="tall">
+          <a class="card__link" href="#">
+            <span class="card__media reveal reveal--mask"><span class="card__no">06</span><span class="card__view">View →</span><img src="assets/work-06.svg" alt="" width="800" height="1000" loading="lazy" /></span>
+            <span class="card__row"><span class="card__title">Web Visual</span><span class="card__tag">Digital</span></span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="about" id="about">
+      <div class="about__media reveal reveal--mask">
+        <img src="assets/portrait.svg" alt="Jo Yejin portrait (placeholder)" width="600" height="750" loading="lazy" data-parallax="0.1" />
+      </div>
+      <div class="about__text reveal">
+        <p class="about__kicker">(About)</p>
+        <p class="about__big">
+          Hi, I'm <strong>Jo Yejin</strong>, a designer who likes making a bit of everything —
+          organizing and expressing ideas through <em>image</em> and <em>word</em>.
+        </p>
+        <p class="dim">(placeholder — add your real bio: focus, process, tools.)</p>
+        <dl class="facts">
+          <div><dt>Focus</dt><dd>Editorial · Brand · Graphic</dd></div>
+          <div><dt>Tools</dt><dd>Figma · Illustrator · InDesign</dd></div>
+          <div><dt>Since</dt><dd>2023</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="contact" id="contact">
+      <div class="reveal">
+        <p class="contact__eyebrow">Let's work together</p>
+        <h2 class="contact__title"><a href="mailto:hello@example.com">hello@example.com</a></h2>
+        <ul class="contact__links">
+          <li><a href="#">Instagram ↗</a></li>
+          <li><a href="#">Behance ↗</a></li>
+          <li><a href="#">LinkedIn ↗</a></li>
+        </ul>
+        <p class="dim">(placeholder — replace email &amp; social links.)</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© <span id="year">2026</span> Jo Yejin</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
