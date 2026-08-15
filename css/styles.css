@@ -1,5 +1,5 @@
 /* ============================================================
-   Jo Yejin — Graphic Design Portfolio
+   Cho Yejin — Graphic Design Portfolio
    Original stylesheet. Editorial, image-forward, motion-rich.
    ============================================================ */
 
@@ -201,7 +201,8 @@ section { padding: clamp(72px, 14vh, 170px) 0; }
   .hero__index { display: none; }
   .featured__link { grid-template-columns: 1fr; gap: 28px; }
   .featured__title { margin-top: 4px; }
-  .grid { grid-template-columns: repeat(2, 1fr); }
+  /* Selected Work: two even columns; tall cards stop spanning so rows stay aligned */
+  .grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: auto; }
   .card[data-span="tall"] { grid-row: span 1; }
   .card[data-span="tall"] .card__media { aspect-ratio: 4 / 5; }
   .about { grid-template-columns: 1fr; gap: 32px; }
@@ -209,13 +210,23 @@ section { padding: clamp(72px, 14vh, 170px) 0; }
   .facts { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 620px) {
-  .nav__links { position: fixed; inset: 66px 0 auto 0; flex-direction: column; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line); padding: 8px var(--pad) 20px; transform: translateY(-135%); transition: transform .35s var(--ease); }
+  .nav { gap: 16px; }
+  .nav__links { position: fixed; inset: 62px 0 auto 0; flex-direction: column; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line); padding: 8px var(--pad) 20px; transform: translateY(-135%); transition: transform .35s var(--ease); }
   .nav__links.is-open { transform: translateY(0); }
   .nav__links a { padding: 15px 0; font-size: 15px; border-bottom: 1px solid var(--line); }
   .nav__links a::after { display: none; }
   .burger { display: flex; }
   .hero__foot { flex-direction: column; align-items: flex-start; gap: 20px; }
-  .grid { grid-template-columns: 1fr; }
+  /* Selected Work on phones: one card per row, artwork shown at its natural ratio (no crop) */
+  .grid { grid-template-columns: 1fr; gap: 26px; }
+  .card__media,
+  .card[data-span="tall"] .card__media { aspect-ratio: auto; }
+  .card__media img { height: auto; }
+  .card__view { opacity: 1; transform: none; }
   .facts { grid-template-columns: 1fr; gap: 16px; }
   .foot { flex-direction: column; }
+}
+@media (max-width: 420px) {
+  .nav__brand { font-size: 19px; }
+  .section-head { margin-bottom: 34px; }
 }
