@@ -37,13 +37,16 @@
      OWNER=yejincho-e; REPO=elin-portfolio
      for f in <바뀐 파일들>; do
        SHA=$(~/bin/gh api "repos/$OWNER/$REPO/contents/$f" --jq .sha 2>/dev/null)
-       CONTENT=$(base64 -i "$f" | tr -d '\n')
+       base64 -i "$f" | tr -d '\n' > /tmp/_b64
        ~/bin/gh api -X PUT "repos/$OWNER/$REPO/contents/$f" \
-         -f message="update $f" -f content="$CONTENT" -f branch=main \
+         -f message="update $f" -F content=@/tmp/_b64 -f branch=main \
          ${SHA:+-f sha="$SHA"}
+       rm -f /tmp/_b64
      done
      ```
-     (파일이 이미 존재하면 반드시 기존 `sha`를 같이 보내야 덮어쓰기가 됨. 새 파일이면 sha 생략.)
+     (파일이 이미 존재하면 반드시 기존 `sha`를 같이 보내야 덮어쓰기가 됨. 새 파일이면 sha 생략.
+     **주의**: base64 내용을 `-f content="$VAR"`로 바로 넘기면 사진처럼 큰 파일에서
+     `argument list too long` 에러 발생함 — 항상 임시 파일에 써서 `-F content=@파일`로 넘길 것.)
    - 참고: 다음에 세션을 열 때 `git --version`을 한번 확인해서, Xcode 도구 설치가
      끝났으면 그때부터는 git 방식(더 안정적, 바이너리/다중 파일에 유리)으로 전환할 것.
 
